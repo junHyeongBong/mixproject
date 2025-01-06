@@ -24,16 +24,46 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'  //JPA(Hibernate)기반 데이터 엑세서를 쉽게 구현. db와의 상호작용을 위한 orm(객체 관계 매핑지원)
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
-    implementation 'org.springframework.boot:spring-boot-starter-security'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-security'  //Spring security 기능을 제공하여 인증 및 권한 관리를 손쉽게 구현
+    implementation 'org.springframework.boot:spring-boot-starter-web'       //웹 어플리케이션을 개발을 위한 기본 라이브러리. Spring mvc, restful 웹 서비스 등을 지원
+    implementation 'org.springframework.boot:spring-boot-starter-batch'     //대량의 데이터 처리(배치 작업)을 위한 spring batch 기능을 지원
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.4' //Spring mvc 기반 애플리케이션에서 openApi(Swagger)문서 자동생성 UI 제공
+    implementation 'org.springframework.boot:spring-boot-starter-validation' //Spring 어플에서 입력 데이터 검증을 위한 표준 Java Validation Api 지원
+
+    //Jwt - jwt 생성, 검증, 파싱을 위한 라이브러리. 인증 및 권한 부여에 사용
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+    implementation 'io.jsonwebtoken:jjwt-impl:0.11.5'
+    implementation 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+
+    //QueryDsl
+    implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
+    annotationProcessor "com.querydsl:querydsl-apt:5.0.0:jakarta"
+    annotationProcessor "jakarta.annotation:jakarta.annotation-api"
+    annotationProcessor "jakarta.persistence:jakarta.persistence-api"
+
+    //excel
+    implementation group: 'org.apache.poi', name: 'poi', version: '4.1.2'
+    implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '4.1.2' //excel apache poi
+    implementation 'com.monitorjbl:xlsx-streamer:2.1.0' //대용량 excel 파일을 스트리밍 방식으로 처리하여 메모리 사용 최소화
+    implementation 'org.docx4j:docx4j-core:11.5.0'      //office open xml 문서(.docs, .xlsx 등)를 java로 처리할수있는 라이브러리
+    implementation group: 'com.opencsv', name: 'opencsv', version: '5.9'    //csv파일을 읽고 쓰기 위한 라이브러리
+    implementation group: 'sax', name: 'sax', version: '2.0.1'      //xml 파일을 효율적으로 처리하기 위한 sax 파서
+
+    //json
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.17.2' //json데이터를 java객체 변환하거나 반대작업수행 jackson 라이브러리
+
+    implementation group: 'com.amazonaws', name: 'aws-java-sdk-s3', version: '1.12.770' //aws 관련 라이브러리 파일업로드,다운로드,관리 지원
+
+    implementation group: 'com.google.guava', name: 'guava', version: '33.2.1-jre'  //java 유틸 라이브러리, 컬렉션, 스트링 조작, 캐싱, 동시성, IO 등을 지원
+
     compileOnly 'org.projectlombok:lombok'
-    runtimeOnly 'com.mysql:mysql-connector-j'
-    annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'org.springframework.security:spring-security-test'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    runtimeOnly 'com.mysql:mysql-connector-j'   //mysql db와 java 애플리케이션간의 연결을 지원하는 jdbc 드라이버
+    annotationProcessor 'org.projectlombok:lombok' //반복적인 코드(getter, setter, 생성자)를 자동 생성하는 어노테이션 제공
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'  //spring boot 어플리케이션 테스트를 위한 필수 라이브러리. junit, mockito 포함
+    testImplementation 'org.springframework.security:spring-security-test'  //spring security 관련된 테스트 지원 랑이브러리
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'   //junit 테스트를 실행하는 플랫폼 런처
 
 }
 
