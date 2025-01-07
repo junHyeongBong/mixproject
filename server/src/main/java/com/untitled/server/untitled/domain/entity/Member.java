@@ -1,5 +1,6 @@
 package com.untitled.server.untitled.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.untitled.server.untitled.global.common.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
@@ -19,7 +20,15 @@ public class Member {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonIgnore
+    @Column(length = 100, nullable = false)
+    private String password;
+
+    private String refreshToken;
+
     private String name;
+
+    private String phone;
 
     private String email;
 
