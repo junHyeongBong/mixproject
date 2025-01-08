@@ -6,7 +6,8 @@ import lombok.Getter;
 public enum ErrorInfo {
 
     SYSTEM_ERROR(400100, "MSG_400100", "시스템 에러입니다."),
-    SYSTEM_AUTH_ERROR(400101, "MSG_400101", "권한 에러입니다.");
+    SYSTEM_AUTH_ERROR(400101, "MSG_400101", "권한 에러입니다."),
+    INVALID_PARAM(400102, "MSG_400102", "잘못된 파라키터입니다.");
 
     private int code;
     private String message;
