@@ -4,16 +4,16 @@ server:
 spring:
   mvc:
     pathmatch:
-      matching-strategy: ant_path_matcher
+      matching-strategy: ant_path_matcher #Spring MVC에서 URL 경로 매칭 전략을 지정. 여기서는 AntPathMatcher를 사용하여 경로 매칭을 수행
   servlet:
     multipart:
-      max-file-size: 500MB
-      max-request-size: 550MB
+      max-file-size: 500MB #업로드 가능한 파일의 최대 크기를 500MB
+      max-request-size: 550MB #전체 요청의 최대 크기를 550MB
   messages:
-    basename: message/messages
-    encoding: utf-8
-    fallback-to-system-locale: false
-    always-use-message-format: true
+    basename: message/messages #message/messages 디렉토리에서 메시지 파일을 찾습니다.
+    encoding: utf-8 #메시지 파일의 인코딩을 UTF-8로 설정합니다.
+    fallback-to-system-locale: false  #스템 로케일로 폴백(fallback)할지 여부를 설정합니다. false이면 시스템 로케일을 사용하지 않습니다.
+    always-use-message-format: true #메시지 형식이 항상 MessageFormat을 사용하도록 설정합니다.
 
 springdoc:
   packages-to-scan: com.untitled.server
