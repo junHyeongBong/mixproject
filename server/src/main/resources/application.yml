@@ -4,20 +4,33 @@ server:
 spring:
   mvc:
     pathmatch:
-      matching-strategy: ant_path_matcher #Spring mvc?? url ?? ???? ??.
-  datasource:
-    url: jdbc:mysql://localhost:3306/untitled
-    username: root
-    password: qhdwnsgud1!
+      matching-strategy: ant_path_matcher
   servlet:
     multipart:
-      max-file-size: 500MB    #??? ??? ??? ?? ??? 500MB? ??
-      max-request-size: 550MB #?? ??? ?? ??? 500MB? ??
+      max-file-size: 500MB
+      max-request-size: 550MB
   messages:
-    basename: message/messages  #message/messages ?????? ??? ?? ??
-    encoding: utf-8             #??? ??? ???? utf-8? ??
-    fallback-to-system-locale: false  #??? ???? fallback ?? ??, false?? ??? ??? ?? X
-    always-use-message-format: true   #??? ??? ?? messageFormat? ????? ??
+    basename: message/messages
+    encoding: utf-8
+    fallback-to-system-locale: false
+    always-use-message-format: true
+
+springdoc:
+  packages-to-scan: com.untitled.server
+  default-consumes-media-type: application/json;charset=UTF-8
+  default-produces-media-type: application/json;charset=UTF-8
+  swagger-ui:
+    path: / #swagger custom 주소(default 주소인 /swagger-ui/index.html 로 설정할수없다)
+    disable-swagger-default-url: true
+    display-request-duration: true
+    tags-sorter: alpha
+    operations-sorter: method
+    default-model-expand-depth: 2
+    default-models-expand-depth: 2
+  paths-to-match:
+    - /api/**
+  show-actuator: true
+  writer-with-default-pretty-printer: true
 
 
 

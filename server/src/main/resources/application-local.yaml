@@ -1,0 +1,41 @@
+spring:
+  sql:
+    init:
+      mode: always
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: 'true'
+        show_sql: 'true'
+    defer-datasource-initialization: true
+  batch:
+    jdbc:
+      initialize-schema: always
+    job:
+      enabled: false
+      name: ${job.name:NONE}
+  datasource:
+    app:
+      url: jdbc:mysql://localhost:3306/untitled?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: qhdwnsgud1!
+      data: app-data.sql
+      hikari:
+        auto-commit: true
+        connection-test-query: SELECT 1
+        maximum-pool-size: 10
+        pool-name: mysql-sttl-manager-pool
+      hibernate:
+        ddl-auto: none
+        naming:
+          physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
+          implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+
+application:
+  name: untitled
+  admin:
+    id: admin
+    password: admin1234!
+    name: admin
