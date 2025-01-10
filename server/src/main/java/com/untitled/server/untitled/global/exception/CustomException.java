@@ -59,7 +59,7 @@ public class CustomException extends RuntimeException {
         this.message = errorInfo.replaceMessage(message);
     }
 
-    public CustomException(ErrorInfo errorInfo, Throwable cause) {
+    public CustomException(Throwable cause, ErrorInfo errorInfo) {
         super(cause);
         this.code = errorInfo.getCode();
         this.messageCode = errorInfo.getMessageCode();

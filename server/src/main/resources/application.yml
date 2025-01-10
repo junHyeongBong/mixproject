@@ -32,5 +32,10 @@ springdoc:
   show-actuator: true
   writer-with-default-pretty-printer: true
 
+jwt:
+  header: Authorization
+  access-token-validity-in-seconds: 120 #2분
+  refresh-token-validity-in-seconds: 172800 # 2일
+  secret: cPgtESJtmYZGK3UiDQ5DlnmDeC25mUNIrT/KIBlJYLc=
 
 
