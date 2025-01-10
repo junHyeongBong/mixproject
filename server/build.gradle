@@ -33,9 +33,9 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-validation' //Spring 어플에서 입력 데이터 검증을 위한 표준 Java Validation Api 지원
 
     //Jwt - jwt 생성, 검증, 파싱을 위한 라이브러리. 인증 및 권한 부여에 사용
-    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
-    implementation 'io.jsonwebtoken:jjwt-impl:0.11.5'
-    implementation 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'     //JWT처리 관련된 인터페이스와 주요 클래스(API) 제공 JWT를 생성, 서명, 검증, 디코딩, 파싱하는데 필요한 기본적인 기능 정의
+    implementation 'io.jsonwebtoken:jjwt-impl:0.11.5'    //api정의된 빌더(JwtBuilder)와 파서(JwtParser)동작 구현, 실제동작 구현
+    implementation 'io.jsonwebtoken:jjwt-jackson:0.11.5' //jwt의 claim 데이터 json 형식 직렬화 역직렬화, payload를 json으로 인코딩하거나 디코딩
 
     //QueryDsl
     implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
